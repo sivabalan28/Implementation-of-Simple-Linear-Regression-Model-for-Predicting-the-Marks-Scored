@@ -8,63 +8,63 @@ To write a program to predict the marks scored by a student using the simple lin
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. Import the necessary libraries and read the file student scores
-2. Print the x and y values
-3. Separate the independent values and dependent values
-4. Split the data
-5. Create a regression model
-6. Find mse,mae and rmse and print the values
+1.Import the standard Libraries.    
+2.Set variables for assigning dataset values.    
+3.Import linear regression from sklearn.    
+4.Assign the points for representing in the graph.    
+5.Predict the regression for marks by using the representation of the graph.     
+6.Compare the graphs and hence we obtained the linear regression for the given datas
 
 ## Program:
 ```
 Program to implement the simple linear regression model for predicting the marks scored.
-Developed by: SIVABALAN S
-RegisterNumber:  212222240100
+Developed by: SIVAVBALAN S
+RegisterNumber:  212222040100
 ```
 ```py
 import pandas as pd
+df=pd.read_csv('/content/TABLE - Sheet1.csv')
+df.head()
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_absolute_error,mean_squared_error
-df=pd.read_csv("/content/student_scores.csv")
-df.head()
-df.tail()
-x=df.iloc[:,:-1].values
-print(x)
-y=df.iloc[:,1].values
-print(y)
+df=pd.read_csv('/content/TABLE - Sheet1.csv')
+df.head(10)
+plt.scatter(df['x'],df['y'])
+plt.xlabel('x')
+plt.xlabel('y')
+x=df.iloc[:,0:1]
+y=df.iloc[:,-1]
+y
 from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=0)
 from sklearn.linear_model import LinearRegression
-regressor=LinearRegression()
-regressor.fit(x_train,y_train)
-y_pred=regressor.predict(x_test)
-print(y_pred)
-print(y_test)
-plt.scatter(x_train,y_train,color='orange')
-plt.plot(x_train,regressor.predict(x_train),color='red')
-plt.title("Hours vs Scores (Training Set)")
-plt.xlabel("Hours")
-plt.ylabel("Scores")
-plt.show()
-plt.scatter(x_test,y_test,color='purple')
-plt.plot(x_test,regressor.predict(x_test),color='yellow')
-plt.title("Hours vs Scores (Test Set)")
-plt.xlabel("Hours")
-plt.ylabel("Scores")
-plt.show()
-mse=mean_squared_error(y_test,y_pred)
-print('MSE = ',mse)
-mae=mean_absolute_error(y_test,y_pred)
-print("MAE = ",mae)
-rmse=np.sqrt(mse)
-print("RMSE = ",rmse)
+lr=LinearRegression()
+lr.fit(x_train,y_train)
+x_train
+y_train
+lr.predict(x_test.iloc[0].values.reshape(1,1))
+plt.scatter(df['x'],df['y'])
+plt.xlabel('x')
+plt.xlabel('y')
+plt.plot(x_train,lr.predict(x_train),color='red')
 ```
 
 ## Output:
-![306152487-2149c2cd-28d4-4e91-b592-a6f5b9455ff3](https://github.com/sivabalan28/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/113497347/03cd76b1-ee97-4b5f-8967-10f2d38ef8c7)
-![306152688-e5cec305-c4d7-42da-b1d3-d2f93a7056cb](https://github.com/sivabalan28/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/113497347/581a3fb5-9a8e-47f0-aef1-178f08e3535e)
-![306152767-ad3e916d-238a-417e-8280-13323d59f14d](https://github.com/sivabalan28/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/113497347/8d35710a-817d-4044-902c-40e792d81022)
+## 1)HEAD:
+![Screenshot 2024-04-01 135456](https://github.com/karthick960/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/121215938/a31cc930-e688-46a9-9d23-1d1667a689d9)
+## 2)GRAPH OF PLOTTED DATA:
+![Screenshot 2024-04-01 135551](https://github.com/karthick960/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/121215938/faaaaf6d-be7e-4798-b721-257fefe9cf8f)
+## 3)TRAINED DATA:
+![Screenshot 2024-04-01 135639](https://github.com/karthick960/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/121215938/c81b6539-f686-4c48-b2ca-8b5d78d565e0)
+## 4)LINE OF REGRESSION:
+![Screenshot 2024-04-01 135816](https://github.com/karthick960/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/121215938/2e4dd601-70a7-45c0-8ed7-8974394f01e0)
+## 5)COEFFICIENT AND INTERCEPT VALUES:
+![Screenshot 2024-04-01 135905](https://github.com/karthick960/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/121215938/35ec35e0-a3bc-4859-b3ae-af639b8556ca)
+
+
+
+
 
 ## Result:
 Thus the program to implement the simple linear regression model for predicting the marks scored is written and verified using python programming.
